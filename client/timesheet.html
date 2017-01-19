@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style/timesheet.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.css.map">
+</head>
+<body onload="timesheetWeek()" >
+	<div id="main">
+		<div id="header">
+			<div id="head">
+				<h1 id="heading">TIME TRACKER</h1>
+				<h4 id="username"></h4>
+
+
+			</div>
+
+
+
+			<div id="logout_div">
+
+			
+				<input type="button" value="LOGOUT" id="logout_button" onclick="logout()">
+				<div id="date"></div>
+			</div>
+
+		</div>
+
+		<div id="content">
+	<!-- 	<center>
+			Userid:<input type="text" id="userid">
+			<button onclick=" timesheetWeek()">OK</button>
+		</center> -->
+
+			
+			<div id="button"> 
+				<button type="button" class="btn btn-default" onclick="getPreviousWeek()" id="button1"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+			</div>
+
+			<div id="button_front"> 
+				<button type="button" class="btn btn-default" onclick="getnextWeek()" id="button2"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+				</button>
+			</div>
+
+			<table class="table table-bordered table-hover">
+			    <thead>
+			    <tr>
+			    	<th>Day</th>
+			    	<th>MON</th>
+			    	<th>TUE</th>
+			    	<th>WED</th>
+			    	<th>THU</th>
+			    	<th>FRI</th>
+
+			    </tr>
+			      <tr>
+			      	<th id="task_details">Date</th>
+			    	<th id="th1" value=""></th>
+			        <th id="th2" value=""></th>
+			        <th id="th3" value=""></th>
+			        <th id="th4" value=""></th>
+			        <th id="th5"  value=""></th>
+
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			      	<td>Task ID</td>
+			        <td>
+			        	<select id="list1">
+			        		<option >Select</option>
+			        	</select>
+			        </td>
+			        <td>
+			        	<select id="list2">
+			        		<option>Select</option>
+			        	</select>
+			        </td>
+			        <td>
+			        	<select id="list3">
+			        		<option>Select</option>
+			       		 </select>
+			       	</td>
+			        <td>
+			        	<select id="list4">
+			        		<option>Select</option>
+			        	</select>
+			        </td>
+			        <td>
+			        	<select id="list5">
+			        		<option>Select</option>
+			        	</select>
+			        </td>
+
+			       
+			      
+			      </tr>
+			      <tr>
+			      	<td>Task name</td>
+			        <td><input type="text" id="taskname1"></td>
+			        <td><input type="text" id="taskname2"></td>
+			        <td><input type="text" id="taskname3"></td>
+			        <td><input type="text" id="taskname4"></td>
+			        <td><input type="text" id="taskname5"></td>
+			       
+			      </tr>
+			      <tr>
+			      	<td>Duration</td>
+			        <td><input type="text" id="time1"></td>
+			        <td><input type="text" id="time2"></td>
+			 		<td><input type="text" id="time3"></td>
+			 		<td><input type="text" id="time4"></td>
+			 		<td><input type="text" id="time5"></td>
+			      
+			      
+			      </tr>
+
+			      <tr>
+			      	<td>Save/Edit</td>
+			      	<td>
+			      	<button type="button" class="btn btn-default" id="save1" onclick="saveTask('save1')">
+			      			<i class="fa fa-floppy-o" aria-hidden="true" ></i>
+						</button>
+						<button type="button" class="btn btn-default" id="edit1" onclick="editTask('edit1')">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						</button>
+						</td>
+			      	<td><button type="button" class="btn btn-default" id="save2" onclick="saveTask('save2')">
+			      			<i class="fa fa-floppy-o" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="btn btn-default" id="edit2" onclick="editTask('edit2')">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						</button></td>
+			      	<td><button type="button" class="btn btn-default" id="save3" onclick="saveTask('save3')">
+			      			<i class="fa fa-floppy-o" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="btn btn-default" id="edit3" onclick="editTask('edit3')">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						</button></td>
+			      	<td><button type="button" class="btn btn-default" id="save4" onclick="saveTask('save4')">
+			      			<i class="fa fa-floppy-o" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="btn btn-default" id="edit4" onclick="editTask('edit4')">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						</button></td>
+			      	<td><button type="button" class="btn btn-default" id="save5" onclick="saveTask('save5')" >
+			      			<i class="fa fa-floppy-o" aria-hidden="true"></i>
+						</button>
+						<button type="button" class="btn btn-default" id="edit5" onclick="editTask('edit5')">
+							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+						</button></td>
+			      </tr>
+
+			    
+			    </tbody>
+			</table>
+
+			<div id="field"></div>
+			
+		</div>
+	</div>
+
+	 
+	<script type="text/javascript" src="script/timesheet.js"> </script>
+	<script type="text/javascript" src="script/editTask.js"></script>
+	<script type="text/javascript" src="script/logout.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,59 @@
+#main {
+	width: 100%;
+}
+
+#header {
+
+	background-color:  #4682B4;
+	padding: 30px;
+}
+
+#head {
+	width: 48%;
+	color: white;
+	display: inline-block;
+}
+
+#logout_div {
+	width: 48%;
+	display: inline-block;
+	
+}
+#username {
+	float: right;
+	color: white;
+}
+#logout_button {
+	
+	float: right;
+}
+#content {
+	width: 100%;
+	margin-top: 50px;
+}
+
+#button2 {
+	float: right;
+	background-color: #4682B4;
+	color: white;
+
+}
+
+#button1 {
+	float: left;
+	background-color: #4682B4;
+	color: white;
+}
+
+#save_button {
+	background-color: #4682B4;
+	color: white;
+	
+}
+
+#date {
+	color: white;
+	float: right;
+	margin-left: 52px;
+	margin-right: 30px;
+}
